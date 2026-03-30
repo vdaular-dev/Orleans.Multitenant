@@ -1,5 +1,5 @@
 ﻿# <img src="img/CSharp-Toolkit-Icon.png" alt="Backend Toolkit" width="64px" />Orleans.Multitenant
-Secure, flexible tenant separation for Microsoft Orleans 9
+Secure, flexible tenant separation for Microsoft Orleans 10 on .NET 10
 
 > [![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Orleans.Multitenant?color=gold&label=NuGet:%20Orleans.Multitenant&style=plastic)](https://www.nuget.org/packages/Orleans.Multitenant)<br />
 > (install in silo client and grain implementation projects)
@@ -7,7 +7,7 @@ Secure, flexible tenant separation for Microsoft Orleans 9
 _(Note: this repo was transferred from Applicita to VincentH-Net on March 17, 2025 to reflect who actively maintains it)_
 
 ## Summary
-[Microsoft Orleans 9](https://github.com/dotnet/orleans/releases/tag/v9.0.0) is a great technology for building distributed, cloud-native applications. It was designed to reduce the complexity of building this type of applications for C# developers.
+[Microsoft Orleans 10](https://github.com/dotnet/orleans/releases) is a great technology for building distributed, cloud-native applications. It was designed to reduce the complexity of building this type of applications for C# developers.
 
 However, creating multi tenant applications with Orleans out of the box requires careful design, complex coding and significant testing to prevent unintentional leakage of communication or stored data across tenants. Orleans.Multitenant adds this capability to Orleans for free, as an uncomplicated, flexible and extensible API that lets developers:
 
@@ -20,6 +20,17 @@ However, creating multi tenant applications with Orleans out of the box requires
 
 - **Secure** against development mistakes: unauthorized access to a tenant specific grain or stream throws an `UnauthorizedException`, and using a non-tenant aware API on a tenant aware stream is blocked and logged.
 
+## Requirements
+- .NET 10 SDK for building and testing this repository
+- Microsoft Orleans 10 packages in consuming applications
+
+## Installation
+Install the package in silo, client and grain implementation projects:
+
+```bash
+dotnet add package Orleans.Multitenant
+```
+
 ## Scope and limitations
 - Tenant id's are part of the key for a `GrainId` or `StreamId` and can be any string; the same goes for keys within a tenant. The creation and lifecycle management of tenant id's is the responsibility of the application developer; as far as Orleans.Multitenant is concerned, tenants are **virtual** just like grains and streams - so conceptually all possible tenant id's always exist
 
@@ -28,8 +39,8 @@ However, creating multi tenant applications with Orleans out of the box requires
 - Only `IGrainWithStringKey` grains can be tenant specific
 
 ## Usage
-All multitenant features can be independenty enabled and configured at silo startup, with the `ISiloBuilder` `AddMultitenant*` extension methods.
-See the inline documentation for more details on how to use the API's that are mentioned in this readme. All the public API's come with full inline documentation
+All multitenant features can be independently enabled and configured at silo startup, with the `ISiloBuilder` `AddMultitenant*` extension methods.
+See the inline documentation for more details on how to use the APIs that are mentioned in this readme.
 
 ### Add multitenant storage
 To add tenant storage separation to any Orleans storage provider, use `AddMultitenantGrainStorage` and `AddMultitenantGrainStorageAsDefault` on an `ISiloBuilder` or `IServiceCollection`:
@@ -154,7 +165,7 @@ class ExtendedCrossTenantAccessAuthorizer : ICrossTenantAuthorizer
     internal const string RootTenantId = "RootTenant";
 
     public bool IsAccessAuthorized(string? sourceTenantId, string? targetTenantId)
-    =>  string.CompareOrdinal(sourceTenantId, RootTenantId) == 0;
+    => string.Equals(sourceTenantId, RootTenantId, StringComparison.Ordinal);
     // Allow access from the root tenant to any tenant
 }
 ```
@@ -195,7 +206,7 @@ Where a tenant grain is available,
   var otherTenantStream = this.GetTenantStreamProvider("provider_name", "tenant_id").GetStream<int>("stream_namespace", "stream_key_within_tenant");
   ```
 
-When `AddMultitenantCommunicationSeparation` is used, all of the above methods are guarded against unautorized access.
+When `AddMultitenantCommunicationSeparation` is used, all of the above methods are guarded against unauthorized access.
 
 ### Access tenant grains and streams without a tenant grain
 Where no tenant grain is available (e.g. in a cluster client, a stateless worker grain or a grain service),
@@ -235,5 +246,4 @@ The `MultitenantStorageOptions.TenantIdForNullTenant` setting specifies the non-
 
 ### Tenant unaware streams
 To access tenant unaware streams (e.g. streams whose keys are defined by 3rd party code), use the Orleans built-in `IStreamProvider`. There is no need for an `ICrossTenantAuthorizer` to enable this access, because an `IStreamProvider` does not have the `TenantSeparatingStreamFilter` attached.
-
 

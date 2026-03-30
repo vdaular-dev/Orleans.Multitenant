@@ -1,21 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <AnalysisLevel>preview-All</AnalysisLevel>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-        <NoWarn>$(NoWarn);1591</NoWarn>
     </PropertyGroup>
     
     <PropertyGroup>
         <IsPackable>true</IsPackable>
         <PackageId>Orleans.Multitenant</PackageId>
-        <PackageVersion>3.0.0</PackageVersion>
+        <PackageVersion>4.0.0</PackageVersion>
         <Title>Orleans Multitenant</Title>
-        <Description>Secure, flexible tenant separation for Microsoft Orleans 9</Description>
+        <Description>Secure, flexible tenant separation for Microsoft Orleans 10</Description>
         <Authors>VincentH.NET</Authors>
         <Company>InnoWvate.NET</Company>
         <Copyright>Copyright © InnoWvate.NET</Copyright>
@@ -25,7 +24,7 @@
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageReleaseNotes>See source repository for release notes</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/VincentH-Net/Orleans.Multitenant</RepositoryUrl>
-        <PackageTags>multitenant;multi-tenant;tenant;tenant separation;separation;Orleans;Orleans 9;Microsoft Orleans;InnoWvate.NET</PackageTags>
+        <PackageTags>multitenant;multi-tenant;tenant;tenant separation;separation;Orleans;Orleans 10;Microsoft Orleans;InnoWvate.NET</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <!-- Enable Source Link -->
@@ -41,9 +40,9 @@
     </ItemGroup>
 
     <ItemGroup>
-		<PackageReference Include="Microsoft.Orleans.Runtime" Version="9.1.2" />
-		<PackageReference Include="Microsoft.Orleans.Sdk" Version="9.1.2" />
-		<PackageReference Include="Microsoft.Orleans.Streaming" Version="9.1.2" />
+		<PackageReference Include="Microsoft.Orleans.Runtime" Version="10.0.1" />
+		<PackageReference Include="Microsoft.Orleans.Sdk" Version="10.0.1" />
+		<PackageReference Include="Microsoft.Orleans.Streaming" Version="10.0.1" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#pragma warning disable CS1591 // XML documentation is generated for the sample API, but this public controller is not intended to be documented as a reusable public API.
+
+using Microsoft.AspNetCore.Mvc;
 using Orleans4Multitenant.Contracts;
 using Orleans4Multitenant.Contracts.TenantContract;
 
@@ -88,3 +90,5 @@ public class TenantController(IClusterClient orleans) : ControllerBase(orleans)
             {                               } r => throw r.UnhandledErrorException()
         };
 }
+
+#pragma warning restore CS1591

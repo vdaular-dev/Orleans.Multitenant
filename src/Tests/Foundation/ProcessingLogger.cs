@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace OrleansMultitenant.Tests;
 
-public static class LoggingBuilderExtensions
+static class LoggingBuilderExtensions
 {
     [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Method does not have dispose ownership")]
     public static ILoggingBuilder AddProcessing(this ILoggingBuilder builder)

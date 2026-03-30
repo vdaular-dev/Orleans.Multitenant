@@ -1,6 +1,6 @@
 ﻿using Azure.Data.Tables;
 using Orleans.Configuration;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Orleans.Multitenant;
 using Orleans.Storage;
 using Orleans4Multitenant.Apis;
@@ -33,7 +33,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => {
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml"));
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Example Orleans 9 Multitenant API", Version = "v1" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Example Orleans 10 Multitenant API", Version = "v1" });
     options.OperationFilter<TenantHeader.AddAsOpenApiParameter>();
 });
 

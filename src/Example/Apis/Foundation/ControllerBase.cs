@@ -1,4 +1,6 @@
-﻿using Orleans.Multitenant;
+﻿#pragma warning disable CS1591 // XML documentation is generated for the sample API, but these public MVC helper types are not intended to be documented as a reusable public API.
+
+using Orleans.Multitenant;
 using Orleans4Multitenant.Contracts.TenantContract;
 
 namespace Orleans4Multitenant.Apis;
@@ -14,3 +16,5 @@ public abstract partial class ControllerBase(IClusterClient orleans) : Microsoft
         }
     }
 }
+
+#pragma warning restore CS1591

@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿#pragma warning disable CS1591 // XML documentation is generated for the test assembly, but public fixtures are not intended to be documented as a public API.
+
+using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Orleans.Configuration;
 using Orleans.Providers;
@@ -64,3 +66,5 @@ sealed class CrossTenantAccessAuthorizer : ICrossTenantAuthorizer
         return false;
     }
 }
+
+#pragma warning restore CS1591

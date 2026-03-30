@@ -13,7 +13,7 @@ namespace OrleansMultitenant.Tests.Examples.Extensibility
         {
             if (sourceTenantId == targetTenantId) throw new InvalidOperationException($"sourceTenantId and targetTenantId are equal ({sourceTenantId ?? "NULL"})");
             AccessChecks.Enqueue((sourceTenantId, targetTenantId));
-            return string.CompareOrdinal(sourceTenantId, RootTenantId) == 0; // Allow access from the root tenant to any tenant
+            return string.Equals(sourceTenantId, RootTenantId, StringComparison.Ordinal); // Allow access from the root tenant to any tenant
         }
     }
 

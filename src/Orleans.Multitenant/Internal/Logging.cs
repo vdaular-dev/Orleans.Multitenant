@@ -37,6 +37,12 @@ enum LoggingParameter
 
 static class LoggerExtensions
 {
+    static readonly Action<ILogger, string, Exception?> LogMultiTenantStorageProviderParticipating = LoggerMessage.Define<string>(
+        LogLevel.Information,
+        Event.MultiTenantStorageProviderParticipating.Id(),
+        $"Storage provider is participating with provider name '{{{ProviderName}}}'"
+    );
+
     static readonly Action<ILogger, string, string, string, Exception?> LogCreatingTenantProvider = LoggerMessage.Define<string, string, string>(
         LogLevel.Information,
         Event.CreatingTenantProvider.Id(),
@@ -86,6 +92,9 @@ static class LoggerExtensions
     );
 
     internal static EventId Id(this Event e) => new((int)e, Enum.GetName(e));
+
+    internal static void MultiTenantStorageProviderParticipating(this ILogger logger, string providerName)
+                      => LogMultiTenantStorageProviderParticipating(logger, providerName, null);
 
     internal static void CreatingTenantProvider(this ILogger logger, Type grainStorageType, string tenantId, string providerName)
                       => LogCreatingTenantProvider(logger, grainStorageType.Name, tenantId, providerName, null);

@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <AnalysisLevel>preview-All</AnalysisLevel>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-        <NoWarn>$(NoWarn);EnableGenerateDocumentationFile</NoWarn>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Orleans.Sdk" Version="9.1.2" />
+		<PackageReference Include="Microsoft.Orleans.Sdk" Version="10.0.1" />
 	</ItemGroup>
 
 </Project>

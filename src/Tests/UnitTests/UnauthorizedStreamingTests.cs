@@ -1,4 +1,6 @@
-﻿using OrleansMultitenant.Tests.Examples.UnauthorizedStreaming;
+﻿#pragma warning disable CS1591 // XML documentation is generated for the test assembly, but test classes and data sources are not intended to be documented as a public API.
+
+using OrleansMultitenant.Tests.Examples.UnauthorizedStreaming;
 
 namespace OrleansMultitenant.Tests.UnitTests;
 
@@ -120,3 +122,5 @@ public class UnauthorizedStreamingTests(ClusterFixture fixture)
 
     IGrainFactory Factory => cluster.GrainFactory;
 }
+
+#pragma warning restore CS1591

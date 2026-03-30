@@ -52,7 +52,7 @@ sealed class MultitenantStorage : IGrainStorage, ILifecycleParticipant<ISiloLife
 
     public void Participate(ISiloLifecycle observer)
     {
-        logger.LogInformation(LoggingEvent.MultiTenantStorageProviderParticipating.Id(), "provider name = {" + nameof(LoggingParameter.ProviderName) + "}", name);
+        logger.MultiTenantStorageProviderParticipating(name);
         siloLifecycleRepeater = new(observer, logger);
     }
 

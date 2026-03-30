@@ -1,4 +1,6 @@
-﻿using OrleansMultitenant.Tests.Examples.AuthorizedStreaming;
+﻿#pragma warning disable CS1591 // XML documentation is generated for the test assembly, but test classes and data sources are not intended to be documented as a public API.
+
+using OrleansMultitenant.Tests.Examples.AuthorizedStreaming;
 
 namespace OrleansMultitenant.Tests.UnitTests;
 
@@ -51,3 +53,5 @@ public class NoTenantIdTests(ClusterFixture fixture)
     IGrainWithStringKey GetGrain(string key)
     => cluster.Client.ForTenant(null!).GetGrain<IStreamProducerGrain>(key);
 }
+
+#pragma warning restore CS1591

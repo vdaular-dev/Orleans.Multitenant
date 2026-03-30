@@ -5,3 +5,4 @@
 
 [assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#naming-your-tests")]
 [assembly: SuppressMessage("Reliability", "CA2007:Consider calling ConfigureAwait on the awaited task", Justification = "Not relevant for tests")]
+[assembly: SuppressMessage("Design", "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal", Justification = "xUnit fixtures and test classes are instantiated by the test framework and remain public for test discovery.")]

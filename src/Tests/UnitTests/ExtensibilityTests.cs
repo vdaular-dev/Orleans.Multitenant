@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿#pragma warning disable CS1591 // XML documentation is generated for the test assembly, but test classes and fixtures are not intended to be documented as a public API.
+
+using Microsoft.Extensions.Configuration;
 using Orleans.Configuration;
 using Orleans.Providers;
 using Orleans.Storage;
@@ -140,3 +142,5 @@ public sealed class ExtensibilityTests(ExtensibilityTests.ClusterFixture fixture
         }
     }
 }
+
+#pragma warning restore CS1591

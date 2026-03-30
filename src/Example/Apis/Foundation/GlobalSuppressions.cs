@@ -7,3 +7,4 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Naming", "CA1721:Property names should not match get methods", Justification = "Type is for tool access only")]
 [assembly: SuppressMessage("Reliability", "CA2007:Consider calling ConfigureAwait on the awaited task", Justification = "Not relevant for ASP.NET Core applications")]
+[assembly: SuppressMessage("Design", "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal", Justification = "Public MVC controller and helper types are activated by ASP.NET Core conventions in this sample application.")]
