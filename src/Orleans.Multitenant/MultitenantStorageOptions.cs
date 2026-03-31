@@ -1,6 +1,4 @@
-﻿#pragma warning disable CS1591 // XML documentation is generated for the package, but this options type is not fully documented yet.
-
-namespace Orleans.Multitenant;
+﻿namespace Orleans.Multitenant;
 
 public sealed class MultitenantStorageOptions
 {
@@ -29,5 +27,3 @@ public sealed class MultitenantStorageOptions
     /// </summary>
     public string TenantIdForNullTenant { get; set; } = "Null";
 }
-
-#pragma warning restore CS1591

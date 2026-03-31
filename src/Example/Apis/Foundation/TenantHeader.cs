@@ -1,6 +1,4 @@
-﻿#pragma warning disable CS1591 // XML documentation is generated for the sample API, but these public OpenAPI helper types are not intended to be documented as a reusable public API.
-
-using Microsoft.OpenApi;
+﻿using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Orleans4Multitenant.Apis;
@@ -21,5 +19,3 @@ public static class TenantHeader
          });
     }
 }
-
-#pragma warning restore CS1591

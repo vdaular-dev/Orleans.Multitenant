@@ -1,6 +1,4 @@
-﻿#pragma warning disable CS1591 // XML documentation is generated for the package, but several public comparison and conversion members in this file are not fully documented yet.
-
-using Orleans.Multitenant.Internal;
+﻿using Orleans.Multitenant.Internal;
 using Orleans.Streams;
 
 namespace Orleans.Multitenant;
@@ -178,5 +176,3 @@ public readonly struct TenantEvent<T> : ITenantEvent
     [Id(0)] internal T Event { get; init; }
     public static implicit operator TenantEvent<T>(T @event) => new() { Event = @event };
 }
-
-#pragma warning restore CS1591

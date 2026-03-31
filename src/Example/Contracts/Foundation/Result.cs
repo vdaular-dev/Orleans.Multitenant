@@ -1,6 +1,4 @@
 ﻿#pragma warning disable CS1574 // These XML cref links refer to ASP.NET API types that are not referenced by the contracts project.
-#pragma warning disable CS1591 // XML documentation is generated for the sample contracts assembly, but these helper result types are not fully documented.
-
 // Version: 1.0.0 (Using https://semver.org/)
 // Updated: 2022-11-10
 // See https://github.com/VincentH-Net/Orleans.Results for updates to this file.
@@ -152,5 +150,4 @@ public abstract class ResultBase<TErrorNr> where TErrorNr : Enum
     }
 }
 #pragma warning restore CA2225 // Operator overloads have named alternates
-#pragma warning restore CS1591
 #pragma warning restore CS1574

@@ -1,6 +1,4 @@
-﻿#pragma warning disable CS1591 // XML documentation is generated for the package, but these public extension entry points are not fully documented yet.
-
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Orleans.Multitenant.Internal;
 using Orleans.Providers;
@@ -318,5 +316,3 @@ public static class StreamIdExtensions
     public static string GetKeyWithinTenant(this StreamId streamId)
     => streamId.Key.Span.GetKey();
 }
-
-#pragma warning restore CS1591
